@@ -33,7 +33,7 @@ const Chat = ({ isSidebarOpen }) => {
 
   const handleSendClick = async () => {
     const formData = new FormData();
-    formData.append('file', selectedFile);
+    formData.append('pdf_file', selectedFile);
 
     let prompt = '';
     if (selectedButton === 'Summary 1') {
@@ -47,7 +47,7 @@ const Chat = ({ isSidebarOpen }) => {
     try {
       setUploading(true);
       console.log("button Clicked");
-      const response = await fetch('https://1488-35-239-233-182.ngrok-free.app/process_pdf', {
+      const response = await fetch('http://18.225.57.61:7860/rewrite_pdf', {
         method: 'POST',
         body: formData,
       });
